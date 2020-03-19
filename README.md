@@ -18,16 +18,22 @@ http://slproweb.com/products/Win32OpenSSL.html
 # 运行
 执行 python3 ShadowServerSSR/shadowSSR/shadowsocks/server.py -c config-user.json
 执行方法有很多种，上面提供了执行的main和参数，细节需要自己修改。
+[avatar](server-result.png)
+[avatar](client-config.png)
 
 # 配置config
+
  我设计的文件在config_user.json中:
+ 
+ 
  {
+ 
     "server": "0.0.0.0",
     "server_ipv6": "::",
     "server_port": 8401, // 开放的端口，如果是aliyun,还要放行你自己设置的端口
     "local_address": "127.0.0.1",
     "local_port": 1080,
-
+    
     "password": "114827", // 客户端登录时用的密码
     "method": "rc4-md5",
     "protocol": "auth_sha1_v4",
