@@ -14,3 +14,35 @@ http://slproweb.com/products/Win32OpenSSL.html
 点击编辑，前面填上：C:program files\OpenSSL-Win32\bin\;
 
 4. 项目的python环境可以用pycharm结合配置python-envs运行最好, 对于普通的执行方法可能会遇到各种路径环境问题，如要激活环境、配置项目路径到python域内等，懂python的应该很了解。
+
+# 运行
+执行 python3 ShadowServerSSR/shadowSSR/shadowsocks/server.py -c config-user.json
+执行方法有很多种，上面提供了执行的main和参数，细节需要自己修改。
+
+# 配置config
+ 我设计的文件在config_user.json中:
+ {
+    "server": "0.0.0.0",
+    "server_ipv6": "::",
+    "server_port": 8401, // 开放的端口，如果是aliyun,还要放行你自己设置的端口
+    "local_address": "127.0.0.1",
+    "local_port": 1080,
+
+    "password": "114827", // 客户端登录时用的密码
+    "method": "rc4-md5",
+    "protocol": "auth_sha1_v4",
+    "protocol_param": "",
+    "obfs": "tls1.2_ticket_auth", # 混淆方案
+    "obfs_param": "intl.aliyun.com", # 混淆参数，经测试用这个参数可以骗过aliyun
+    "speed_limit_per_con": 0,
+    "speed_limit_per_user": 0,
+
+    "additional_ports" : {}, // only works under multi-user mode
+    "additional_ports_only" : false, // only works under multi-user mode
+    "timeout": 120,
+    "udp_timeout": 60,
+    "dns_ipv6": false,
+    "connect_verbose_info": 0,
+    "redirect": "",
+    "fast_open": false
+}
